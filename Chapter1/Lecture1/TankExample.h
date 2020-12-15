@@ -44,6 +44,16 @@ namespace jm
 		{
 			center += velocity * dt;
 		}
+
+		MyBullet()
+		{
+			std::cout << "bullet construct!" << std::endl;
+		}
+
+		~MyBullet()
+		{
+			std::cout << "bullet delete!" << std::endl;
+		}
 	};
 
 	class TankExample : public Game2D
@@ -62,7 +72,7 @@ namespace jm
 
 		~TankExample()
 		{
-			if(bullet != nullptr) delete bullet;
+			if (bullet != nullptr) delete bullet;
 		}
 
 		void update() override
@@ -88,6 +98,63 @@ namespace jm
 			// rendering
 			tank.draw();
 			if (bullet != nullptr) bullet->draw();
+		}
+	};
+
+	class MyTankExample : public Game2D
+	{
+	public:
+		MyTank tank;
+
+		const int maxBullet = 5;
+		std::vector<std::unique_ptr<MyBullet>> bullets;
+
+	public:
+		MyTankExample()
+			: Game2D("This is my digital canvas!", 1024, 768, false, 2)
+		{}
+
+		~MyTankExample()
+		{
+			bullets.clear();
+		}
+
+		void update() override
+		{
+			// move tank
+			if (isKeyPressed(GLFW_KEY_LEFT))	tank.center.x -= 0.5f * getTimeStep();
+			if (isKeyPressed(GLFW_KEY_RIGHT))	tank.center.x += 0.5f * getTimeStep();
+			if (isKeyPressed(GLFW_KEY_UP))		tank.center.y += 0.5f * getTimeStep();
+			if (isKeyPressed(GLFW_KEY_DOWN))	tank.center.y -= 0.5f * getTimeStep();
+
+			// remove a cannon ball
+			bullets.erase(std::remove_if(bullets.begin(), bullets.end()
+				, [](auto &bullet) {return (bullet != nullptr) && (bullet->center.x > 1.5f); })
+				, bullets.end());
+
+			// shoot a cannon ball
+			if (isKeyPressedAndReleased(GLFW_KEY_SPACE) && bullets.size() < maxBullet)
+			{
+				auto bullet = std::make_unique<MyBullet>();
+				bullet->center = tank.center;
+				bullet->center.x += 0.2f;
+				bullet->center.y += 0.1f;
+				bullet->velocity = vec2(2.0f, 0.0f);
+
+				bullets.push_back(std::move(bullet));
+			}
+
+			for (auto &bullet : bullets)
+			{
+				if (bullet != nullptr) bullet->update(getTimeStep());
+			}
+
+			// rendering
+			tank.draw();
+			for (auto &bullet : bullets)
+			{
+				if (bullet != nullptr) bullet->draw();
+			}
 		}
 	};
 }
