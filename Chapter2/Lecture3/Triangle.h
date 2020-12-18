@@ -9,6 +9,17 @@ namespace jm
 	public:
 		float size;
 
+		Triangle(const RGB &_color, const vec2 &_pos, const float &_size)
+		{
+			GeometricObject::init(_color, _pos);
+			size = _size;
+		}
+
+		~Triangle()
+		{
+			std::cout << "Triangle destructor" << std::endl;
+		}
+
 		void init(const RGB & _color, const vec2 & _pos, const float & _size)
 		{
 			GeometricObject::init(_color, _pos);

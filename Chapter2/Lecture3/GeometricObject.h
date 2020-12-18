@@ -10,6 +10,10 @@ namespace jm
 		vec2 pos;
 		RGB  color;
 
+		// shared_ptr 사용시 없어도 됨
+		virtual ~GeometricObject()
+		{}
+
 		void init(const RGB & _color, const vec2 & _pos)
 		{
 			color = _color;
