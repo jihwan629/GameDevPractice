@@ -25,6 +25,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Box.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Engine\Colors.h" />
     <ClInclude Include="Engine\DrawFunctions.h" />

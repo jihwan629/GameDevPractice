@@ -9,13 +9,27 @@ namespace jm
 	public:
 		vec2 pos;
 		RGB color;
-		float size;
+		float angle;
 
-		void init(const RGB &_color, const vec2 &_pos, const float &_size)
+		void init(const RGB &_color, const vec2 &_pos, const float &_angle = 0.0f) 
 		{
 			color = _color;
 			pos = _pos;
-			size = _size;
+			angle = _angle;
+		}
+
+		// 순수 가상 함수
+		virtual void drawGeometry() const = 0;
+
+		void draw()
+		{
+			beginTransformation();
+			{
+				translate(pos);
+				rotate(angle);
+				drawGeometry();
+			}
+			endTransformation();
 		}
 	};
 }

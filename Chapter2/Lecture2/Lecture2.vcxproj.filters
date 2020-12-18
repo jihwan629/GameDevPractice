@@ -51,5 +51,6 @@
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="GeometricObject.h" />
+    <ClInclude Include="Box.h" />
   </ItemGroup>
 </Project>
