@@ -48,5 +48,8 @@
     <ClInclude Include="Examples\PrimitivesGallery.h">
       <Filter>Examples</Filter>
     </ClInclude>
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="GeometricObject.h" />
   </ItemGroup>
 </Project>
