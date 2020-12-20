@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Game2D.h"
+#include <memory>
 
 namespace jm
 {
@@ -10,8 +11,8 @@ namespace jm
 		vec2 pos;
 		RGB  color;
 
-		//virtual ~GeometricObject()
-		//{}
+		virtual ~GeometricObject()
+		{}
 
 		void init(const RGB & _color, const vec2 & _pos)
 		{
@@ -30,5 +31,10 @@ namespace jm
 			}
 			endTransformation();
 		}
+
+		static GeometricObject *makeTriangle(const RGB &_color, const vec2 &_pos, const float &_size);
+		static GeometricObject *makeCircle(const RGB &_color, const vec2 &_pos, const float &_size);
+		static GeometricObject *makeBox(const RGB &_color, const vec2 &_pos, const float &_width, const float &_height);
+		static GeometricObject *makeStar(const RGB &_color, const vec2 &_pos, const float &_outer, const float &_inner);
 	};
 }

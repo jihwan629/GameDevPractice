@@ -9,13 +9,13 @@ namespace jm
 	public:
 		float outer_radius, inner_radius;
 
-		Star(const RGB & _color, const vec2 & _pos, const float & _outer,
+		Star(const RGB &_color, const vec2 &_pos, const float &_outer,
 			const float &_inner)
 		{
 			init(_color, _pos, _outer, _inner);
 		}
 
-		void init(const RGB & _color, const vec2 & _pos, const float & _outer,
+		void init(const RGB &_color, const vec2 &_pos, const float &_outer,
 			const float &_inner)
 		{
 			GeometricObject::init(_color, _pos);
@@ -26,8 +26,7 @@ namespace jm
 
 		void drawGeometry() const override
 		{
-			//drawFilledBox(Colors::blue, this->width, this->height);
-			drawFilledStar(GeometricObject::color, outer_radius, inner_radius);
+			drawFilledStar(GeometricObject::color, this->outer_radius, this->inner_radius);
 		}
 	};
 }
