@@ -58,4 +58,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GeometricObject.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="key_binding.txt" />
+  </ItemGroup>
 </Project>
