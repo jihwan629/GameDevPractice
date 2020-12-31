@@ -11,9 +11,17 @@
 
 <br>
 
+https://youtu.be/NNbXupRVNOc
+
+<br>
+
  - **그물 스프링** `Chapter3\Lecture3_example`
 
 > 질량-스프링 시스템으로 옷감 표현<br>
+
+<br>
+
+https://youtu.be/DR_I-9fsI0Y
 
 <br>
 
@@ -22,3 +30,9 @@
 > 스프링으로 연결된 구와 별 모양 파티클 충돌 구현<br>
 > 마우스 클릭시 파티클 생성<br>
 > 파티클 리소스 재활용으로 메모리 관리<br>
+
+<br>
+
+https://youtu.be/8BMK5sBdqw8
+
+<br>
