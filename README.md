@@ -4,7 +4,7 @@
 
 <br>
 
- - **탱크 게임** `Chapter2\Lecture4`
+ - **탱크 게임** `Chapter2\Lecture5`
 
 > 키보드로 탱크 조종<br>
 > 스마트 포인터로 탱크 포탄 메모리 관리<br>
